@@ -2,6 +2,9 @@
 
 ### Book Store
 Live site link: https://warehouse-assignment-11.web.app/
+Client site repository link: https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-abdurrahaman4363
+
+Server site repository link: https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-abdurrahaman4363
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
