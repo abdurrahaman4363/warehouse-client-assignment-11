@@ -1,14 +1,16 @@
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 
 const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const navigate = useNavigate();
+    const location = useLocation();
       
+    let from = location.state?.from?.pathname || "/";
 
     // auth
     const [
@@ -20,7 +22,7 @@ const Login = () => {
      // auth end
      
      if(user){
-         navigate('/blogs');
+        navigate(from, { replace: true });
      }
 
       
