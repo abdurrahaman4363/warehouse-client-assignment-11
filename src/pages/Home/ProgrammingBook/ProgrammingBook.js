@@ -11,7 +11,7 @@ const ProgrammingBook = () => {
     }, [])
     return (
         <div>
-            <h2 className='text-center text-info'>Programming Books</h2>
+            <h2 className='text-center text-info m-3'>Programming Books</h2>
             <div className='programming'>
                 {
                     book.map(b => <div className='programming-card' key={b._id}>
