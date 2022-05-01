@@ -4,7 +4,28 @@ import useInventoryDetail from '../../hooks/useInventoryDetail';
 
 const InventoryDetail = () => {
     const { inventoryId } = useParams();
-    const [inventory]=useInventoryDetail(inventoryId)
+    const [inventory, setInventory]=useInventoryDetail(inventoryId);
+
+    const handleDelete = id =>{
+           const proced = window.confirm('Are you want to delete???')
+           if(proced){
+            const url = `http://localhost:5000/inventory/${id}`;
+            fetch(url, {
+                method:'DELETE'
+            })
+            .then(res => res.json())
+          .then(data => {
+            
+              if(data.deletedCount>0){
+                  const remaining = inventory.filter(i => i._id !== id);
+                  setInventory(remaining);
+              }
+              
+          })
+
+           }
+    }
+    
     return (
         <div style={{textAlign:'center'}} className='inventory-item'>
             <img src={inventory.picture} alt="" />
@@ -13,13 +34,7 @@ const InventoryDetail = () => {
             <p>Price: {inventory.price}</p>
             <p>id: {inventory._id}</p>
             <p>Discription: {inventory.description}</p>
-            <form>
-                <input type="text" name='name' placeholder='name' required /><br />
-                <input type="text" name='name' placeholder='name' required /><br />
-                <input type="text" name='name' placeholder='name' required /><br />
-                <input type="text" name='name' placeholder='name' required /><br />
-                <input type="text" name='name' placeholder='name' required /><br />
-            </form>
+            <button onClick={() => handleDelete(inventory._id)}>Delivered</button>
         </div>
     );
 };

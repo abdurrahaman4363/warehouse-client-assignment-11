@@ -14,11 +14,11 @@ const Inventory = () => {
     return (
         <div>
             <h2 className='text-center text-primary m-5'>Inventory item:</h2>
-            <h4 className='text-center text-primary'>Quantity: {inventoryItems.length}</h4>
+            <h4 className='text-center text-primary'>Quantity: {inventoryItems.slice(0,6).length}</h4>
 
             <div className='inventory-card'>
                 {
-                    inventoryItems.map(inventory =><InventoryItem
+                  inventoryItems.slice(0, 6).map(inventory =><InventoryItem
                      key={inventory._id}
                      inventory={inventory}
                     ></InventoryItem> )
