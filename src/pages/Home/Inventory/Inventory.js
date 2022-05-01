@@ -13,7 +13,8 @@ const Inventory = () => {
     
     return (
         <div>
-            <h2 className='text-center text-primary m-5'>Inventory item: {inventoryItems.length}</h2>
+            <h2 className='text-center text-primary m-5'>Inventory item:</h2>
+            <h4 className='text-center text-primary'>Quantity: {inventoryItems.length}</h4>
 
             <div className='inventory-card'>
                 {

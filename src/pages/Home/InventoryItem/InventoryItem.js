@@ -16,7 +16,6 @@ const InventoryItem = ({inventory}) => {
             <h2>Name: {name}</h2>
             <h3>Supplier:{supplierName}</h3>
             <p>Price: {price}</p>
-            <p>quantity: {quantity}</p>
             <p>Discription: {description}</p>
             <button onClick={()=>navigateToInventoryDetail(_id)} className='btn btn-dark'>Update</button>
             

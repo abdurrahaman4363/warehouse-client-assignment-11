@@ -9,6 +9,29 @@ Server site repository link: https://github.com/ProgrammingHeroWC4/warehouse-man
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+
+### Short Description
+* Develop authentication system
+* Require page make 
+* Create a navbar
+* Create a footer
+* Banner section add and it is moved
+* make some button to go different page
+* add two section and there has three item
+* create a blogs route and there has answer question
+* emaim verified system implement
+* there has password reset system
+
+### Use features
+- use nodejs
+- use express js
+- use mongodb database
+- use react router
+- use react firebase 
+- use react bootstrap
+- use react fireabase hooks
+- react toast and react hook form etc.
+
 ## Available Scripts
 
 In the project directory, you can run:
