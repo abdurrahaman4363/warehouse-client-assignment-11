@@ -15,7 +15,7 @@ const InventoryDetail = () => {
          const quantity = parseInt(quantity1) - 1;
          
          const addQuantity = {quantity}
-         const url = `http://localhost:5000/inventory/${inventoryId}`
+         const url = `https://secret-temple-12735.herokuapp.com/inventory/${inventoryId}`
          fetch(url, {
              method:'PUT',
              headers:{'content-type':'application/json'},
@@ -35,7 +35,7 @@ const InventoryDetail = () => {
         
             const quantity = parseInt(inventory.quantity)+ parseInt(getQuantity);
             const addQuantity={quantity}
-            const url = `http://localhost:5000/inventory/${inventoryId}`
+            const url = `https://secret-temple-12735.herokuapp.com/inventory/${inventoryId}`
             fetch(url, {
                 method:'PUT',
                 headers:{'content-type':'application/json'},

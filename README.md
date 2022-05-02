@@ -10,6 +10,8 @@ Server site repository link: https://github.com/ProgrammingHeroWC4/warehouse-man
 
 stackoverflow question link: https://stackoverflow.com/questions/72085192/how-do-we-specify-expiration-date-of-jwt
 
+heroku deploy link: https://secret-temple-12735.herokuapp.com/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 

@@ -5,7 +5,7 @@ const ProgrammingBook = () => {
     const [book, setBook] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/programming')
+        fetch('https://secret-temple-12735.herokuapp.com/programming')
             .then(res => res.json())
             .then(data => setBook(data))
     }, [])

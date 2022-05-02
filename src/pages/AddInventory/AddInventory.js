@@ -19,8 +19,8 @@ const AddInventory = () => {
             picture:event.target.photoURL.value
     
         }
-        axios.post('http://localhost:5000/addItem', addItem)
-        // axios.post('http://localhost:5000/inventory', addItem)
+        axios.post('https://secret-temple-12735.herokuapp.com/addItem', addItem)
+        // axios.post('https://secret-temple-12735.herokuapp.com/inventory', addItem)
         .then(Response =>{
             const {data}=Response;
             if(data.insertedId){

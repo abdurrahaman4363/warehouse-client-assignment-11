@@ -53,7 +53,7 @@ const Login = () => {
 
         //auth
        await signInWithEmailAndPassword(email, password);
-       const {data}= await axios.post('http://localhost:5000/login', {email})
+       const {data}= await axios.post('https://secret-temple-12735.herokuapp.com/login', {email})
        localStorage.setItem('accessToken', data.accessToken);
        navigate(from, { replace: true });
 

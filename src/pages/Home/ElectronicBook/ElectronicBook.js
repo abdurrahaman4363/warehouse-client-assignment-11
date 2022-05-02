@@ -7,7 +7,7 @@ const ElectronicBook = () => {
     const [book, setBook] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/electronic')
+        fetch('https://secret-temple-12735.herokuapp.com/electronic')
             .then(res => res.json())
             .then(data => setBook(data))
     }, [])

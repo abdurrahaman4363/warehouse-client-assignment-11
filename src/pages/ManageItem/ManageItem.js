@@ -14,7 +14,7 @@ const ManageItem = () => {
     const [add, setAdd] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/add')
+        fetch('https://secret-temple-12735.herokuapp.com/add')
             .then(res => res.json())
             .then(data => setAdd(data))
     }, []);
@@ -22,7 +22,7 @@ const ManageItem = () => {
     useEffect(() => {
         const getItems = async () => {
             const email = user.email;
-            const url = `http://localhost:5000/addItem?email=${email}`;
+            const url = `https://secret-temple-12735.herokuapp.com/addItem?email=${email}`;
             const { data } = await axios.get(url);
             setmyItems(data);
         }
@@ -34,7 +34,7 @@ const ManageItem = () => {
     const handleDelete = id => {
         const proced = window.confirm('Are you sure???');
         if (proced) {
-            const url = `http://localhost:5000/inventory/${id}`;
+            const url = `https://secret-temple-12735.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -51,7 +51,7 @@ const ManageItem = () => {
     const handleAddDelete = id => {
         const proced = window.confirm('Are you sure???');
         if (proced) {
-            const url = `http://localhost:5000/add/${id}`;
+            const url = `https://secret-temple-12735.herokuapp.com/add/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
