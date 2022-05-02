@@ -20,6 +20,7 @@ const AddInventory = () => {
     
         }
         axios.post('http://localhost:5000/addItem', addItem)
+        // axios.post('http://localhost:5000/addItem', addItem)
         .then(Response =>{
             const {data}=Response;
             if(data.insertedId){
