@@ -4,37 +4,23 @@
     text-align: center;
 
 }
-
-.book-container{
-    display: flex;
-}
-.book-card{
-    text-align: center;
-    border: 1px solid rgb(235, 226, 227);
-    width: 100%;
-    margin: 30px;
-    padding: 10px;
-    border-radius: 10px;
-}
-.book-card img{
-
-}
 @media only screen and (max-width:576px){
-    .book-container{
+    .programming{
         display: grid;
         grid-template-columns: repeat(1, 1fr);
     }
 }
 
 @media only screen and (min-width:577px) and (max-width:992px) {
-    .book-container{
+    .programming{
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 @media only screen and (min-width:993px){
-    .book-container{
-        
+    .programming{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -45,4 +31,3 @@
     border-radius: 10px;
 
 }
-

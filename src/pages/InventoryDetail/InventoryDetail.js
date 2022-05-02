@@ -30,22 +30,25 @@ const InventoryDetail = () => {
 
     const handleAddQuantity = event =>{
         event.preventDefault();
-        const getQuantity = event.target.quantity.value;
+        const getQuantity = parseInt(event.target.quantity.value);
           
-         const quantity = parseInt(inventory.quantity)+ parseInt(getQuantity);
-        const addQuantity={quantity}
-        const url = `http://localhost:5000/inventory/${inventoryId}`
-        fetch(url, {
-            method:'PUT',
-            headers:{'content-type':'application/json'},
-            body:JSON.stringify(addQuantity)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            toast('Increase quantity!!! reload for checking')
-            event.target.reset();
-        })
+        
+            const quantity = parseInt(inventory.quantity)+ parseInt(getQuantity);
+            const addQuantity={quantity}
+            const url = `http://localhost:5000/inventory/${inventoryId}`
+            fetch(url, {
+                method:'PUT',
+                headers:{'content-type':'application/json'},
+                body:JSON.stringify(addQuantity)
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                toast('Increase quantity!!! reload for checking')
+                event.target.reset();
+            })
+        
+       
     }
 
     return (
@@ -59,13 +62,13 @@ const InventoryDetail = () => {
                 <p>Sold: yes</p>
                 <p>id: {inventory._id}</p>
                 <p>Discription: {inventory.description}</p>
-                <div className='w-25 mx-auto d-flex'>
+                <div className='d-flex justify-content-center align-items-center'>
                     <div>
                         <button className='btn btn-dark' onClick={() => decreaseQuantity(inventory.quantity)}>Delivered</button>
                     </div>
-                    <div className='ms-3 bg-primary'>
-                        <form onSubmit={handleAddQuantity}>
-                            <input className='mb-2' type="number" name="quantity" id="" placeholder='quantity' /><br />
+                    <div className='m-3 bg-primary'>
+                        <form  onSubmit={handleAddQuantity}>
+                            <input className='mb-2' type="number"  name="quantity" id="" placeholder='quantity' /><br />
                             <input className='mb-2' type="submit" value="Add Quantity" />
                         </form>
                     </div>
