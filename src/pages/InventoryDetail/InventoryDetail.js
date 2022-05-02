@@ -6,21 +6,32 @@ const InventoryDetail = () => {
     const { inventoryId } = useParams();
     const [inventory, setInventory] = useInventoryDetail(inventoryId);
 
-    const [quntity, setQuantity]=useState('0');
-    console.log('outside',quntity)
+   
 
 
 
-    const decreaseQuantity= (quantity)=>{
-         const newQuantity = quantity - 1;
-         console.log(newQuantity)
-         setQuantity(newQuantity)
+    const decreaseQuantity= (quantity1 , event)=>{
+         const quantity = parseInt(quantity1) - 1;
+         
+         const addQuantity = {quantity}
+         const url = `http://localhost:5000/inventory/${inventoryId}`
+         fetch(url, {
+             method:'PUT',
+             headers:{'content-type':'application/json'},
+             body:JSON.stringify(addQuantity)
+         })
+         .then(res => res.json())
+         .then(data => {
+             console.log(data);
+            //  event.target.reset();
+         })
     }
 
     const handleAddQuantity = event =>{
         event.preventDefault();
-        const quantity = event.target.quantity.value;
-
+        const getQuantity = event.target.quantity.value;
+          
+         const quantity = parseInt(inventory.quantity)+ parseInt(getQuantity);
         const addQuantity={quantity}
         const url = `http://localhost:5000/inventory/${inventoryId}`
         fetch(url, {
