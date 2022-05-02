@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import useInventoryDetail from '../../hooks/useInventoryDetail';
 
 const InventoryDetail = () => {
@@ -10,7 +11,7 @@ const InventoryDetail = () => {
 
 
 
-    const decreaseQuantity= (quantity1 , event)=>{
+    const decreaseQuantity= (quantity1)=>{
          const quantity = parseInt(quantity1) - 1;
          
          const addQuantity = {quantity}
@@ -23,7 +24,7 @@ const InventoryDetail = () => {
          .then(res => res.json())
          .then(data => {
              console.log(data);
-            //  event.target.reset();
+            toast('Decrease quantity!!! reload for checking')
          })
     }
 
@@ -42,6 +43,7 @@ const InventoryDetail = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data);
+            toast('Increase quantity!!! reload for checking')
             event.target.reset();
         })
     }
