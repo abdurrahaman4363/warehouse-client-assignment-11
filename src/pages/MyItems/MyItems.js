@@ -35,7 +35,7 @@ const MyItems = () => {
 
      // for single person
     
-    useEffect(() => {
+    /* useEffect(() => {
 
         const getAddMyItem = async()=>{
             const email = user.email;
@@ -48,7 +48,7 @@ const MyItems = () => {
         getAddMyItem();
         
 
-    }, [user])
+    }, [user]) */
 
     const handleDelete = id => {
         const proced = window.confirm('Are you sure???');
@@ -65,7 +65,7 @@ const MyItems = () => {
                 })
         }
     }
-    const handleAddDelete = id => {
+    /* const handleAddDelete = id => {
         const proced = window.confirm('Are you sure???');
         if (proced) {
             const url = `https://secret-temple-12735.herokuapp.com/add/${id}`;
@@ -79,12 +79,13 @@ const MyItems = () => {
                     setAddMyItem(remaining)
                 })
         }
-    }
+    } */
     return (
         <div>
-            <h2 className='text-center'>My Items: {addMyItem.length} </h2>
+            <h2 className='text-center'>My Items: {myItems.length} </h2>
+            {/* <h2 className='text-center'>My Items: {addMyItem.length} </h2> */}
             <div className='programming'>
-                {
+               {/*  {
                     addMyItem.map(addMyItems => <div className='programming-card' key={addMyItems._id}>
                         <img src={addMyItems.picture} alt="" />
 
@@ -96,7 +97,7 @@ const MyItems = () => {
                         </div>
 
                     </div>)
-                }
+                } */}
                 {
                     myItems.map(myItem => <div className='programming-card' key={myItem._id}>
                         <img src={myItem.picture} alt="" />

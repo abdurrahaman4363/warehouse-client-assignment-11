@@ -9,12 +9,14 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
+import useToken from '../../../hooks/useToken';
 
 const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const navigate = useNavigate();
     const location = useLocation();
+    
 
     let from = location.state?.from?.pathname || "/";
 
@@ -30,9 +32,11 @@ const Login = () => {
     // auth end
 
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+    const [token]=useToken(user);
+    // console.log(user)
 
-    if (user) {
-        // navigate(from, { replace: true });
+    if (token) {
+        navigate(from, { replace: true });
     }
 
     if (error) {
@@ -49,14 +53,9 @@ const Login = () => {
 
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        // console.log(email, password)
 
         //auth
        await signInWithEmailAndPassword(email, password);
-       const {data}= await axios.post('https://secret-temple-12735.herokuapp.com/login', {email})
-       localStorage.setItem('accessToken', data.accessToken);
-       navigate(from, { replace: true });
-
     }
 
     const navigateRegister = () => {
