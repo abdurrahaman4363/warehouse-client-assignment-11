@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useInventoryDetail from '../../hooks/useInventoryDetail';
 
+
 const InventoryDetail = () => {
     const { inventoryId } = useParams();
-    const [inventory, setInventory] = useInventoryDetail(inventoryId);
-
-   
+    
+    const [inventory, setInventory] = useState({});
+         const quantity = inventory.quantity
+     console.log(quantity)
+    useEffect(() => {
+        const url = `https://secret-temple-12735.herokuapp.com/inventory/${inventoryId}`
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setInventory(data));
+    }, [inventoryId,quantity]);
 
 
 
@@ -24,15 +32,15 @@ const InventoryDetail = () => {
          .then(res => res.json())
          .then(data => {
              console.log(data);
+             setInventory(data)
             toast('Decrease quantity!!! reload for checking')
          })
+
     }
 
     const handleAddQuantity = event =>{
         event.preventDefault();
         const getQuantity = parseInt(event.target.quantity.value);
-          
-        
             const quantity = parseInt(inventory.quantity)+ parseInt(getQuantity);
             const addQuantity={quantity}
             const url = `https://secret-temple-12735.herokuapp.com/inventory/${inventoryId}`
@@ -44,6 +52,7 @@ const InventoryDetail = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                setInventory(data)
                 toast('Increase quantity!!! reload for checking')
                 event.target.reset();
             })
@@ -64,7 +73,9 @@ const InventoryDetail = () => {
                 <p>Discription: {inventory.description}</p>
                 <div className='d-flex justify-content-center align-items-center'>
                     <div>
+                        
                         <button className='btn btn-dark' onClick={() => decreaseQuantity(inventory.quantity)}>Delivered</button>
+                        
                     </div>
                     <div className='m-3 bg-primary'>
                         <form  onSubmit={handleAddQuantity}>

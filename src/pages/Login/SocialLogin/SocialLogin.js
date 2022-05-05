@@ -8,7 +8,7 @@ import Loading from '../../Shared/Loading/Loading';
 
 const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-    // console.log(user)
+    
     const navigate = useNavigate();
     const location = useLocation();
     const [token]=useToken(user);

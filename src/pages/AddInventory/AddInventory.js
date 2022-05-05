@@ -20,7 +20,7 @@ const AddInventory = () => {
     
         }
         axios.post('https://secret-temple-12735.herokuapp.com/addItem', addItem)
-        // axios.post('https://secret-temple-12735.herokuapp.com/inventory', addItem)
+        
         .then(Response =>{
             const {data}=Response;
             if(data.insertedId){
